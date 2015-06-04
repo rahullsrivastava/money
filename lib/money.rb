@@ -37,6 +37,19 @@ class Money
     res
   end
 
+  def self.money_sort(array_money)
+    array_paise = []
+    sorted_array_money = []
+    array_money.each do |money|
+      array_paise.push(money.paise)
+    end
+    array_paise = array_paise.sort
+    array_paise.each do |money_paise|
+      sorted_array_money.push(new(0,money_paise))
+    end
+    sorted_array_money
+  end
+
   def hash
     [paise].hash
   end

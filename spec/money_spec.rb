@@ -129,4 +129,16 @@ describe Money do
       expect {Money.new(-2,-50)}.to raise_error(NegativeMoneyError)
     end
   end
+
+  describe "Sorting of money" do
+    it "should return sorted array of money given an array of money" do
+      money1 = Money.new(0,80)
+      money2 = Money.new(0,50)
+      money3 = Money.new(0,100)
+      array_money = [money1, money2, money3]
+      sorted_array_money = [money2, money1, money3]
+      expect(Money.money_sort(array_money)).to eq(sorted_array_money)
+    end
+  end
+
 end
